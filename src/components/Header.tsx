@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, CloudyIcon } from "lucide-react";
 import { Button } from "./ui/button";
 
 export const Header = () => {
@@ -24,7 +24,9 @@ export const Header = () => {
   return (
     <header className="bg-background text-foreground shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Breezy Weather App</h1>
+        <h1 className="text-2xl font-bold">
+          <CloudyIcon className="h-8 w-8 inline-block mr-2" />
+          Breezy Weather App</h1>
         <Button
           variant="ghost"
           size="icon"

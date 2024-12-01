@@ -1,43 +1,56 @@
-interface WeatherCardProps {
+interface WeatherData {
+  cod?: number;
+  message?: number;
+  city: City;
+  list: Array<WeatherEntry>;
+}
+
+interface City {
   coord: {
-    lon: number;
     lat: number;
+    lon: number;
   };
-  weather: Array<{
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-  }>;
-  base: string;
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-    sea_level?: number;
-    grnd_level?: number;
-  };
-  visibility: number;
-  wind: {
-    speed: number;
-    deg: number;
-  };
-  clouds: {
-    all: number;
-  };
-  dt: number;
-  sys: {
-    type: number;
-    id: number;
-    country: string;
-    sunrise: number;
-    sunset: number;
-  };
-  timezone: number;
-  id: number;
+  country: string;
   name: string;
-  cod: number;
+  population: number;
+  sunprise: number;
+  sunset: number;
+  timezone: number;
+}
+
+interface WeatherEntry {
+  clouds: {
+    all: number
+  }
+  dt: date,
+  dt_txt: string,
+  main: {
+    feels_like: number,
+    grnd_level: number
+    humidity: number,
+    pressure: number,
+    sea_level: number,
+    temp: number,
+    temp_kf: number,
+    temp_max: number,
+    temp_min: number
+  }
+  pop: number,
+  sys: {
+    pod: string
+  }
+  visibility: number
+  weather: Array<WeatherDescription>;
+  wind: {
+    deg: number;
+    gust:number;
+    speed: number
+  }
+}
+
+interface WeatherDescription {
+  id: number,
+  main: string,
+  description: string,
+  icon: string
 }
