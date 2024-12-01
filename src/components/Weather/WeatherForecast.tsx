@@ -20,20 +20,23 @@ const getWeatherIcon = (description: string) => {
 };
 
 export const WeatherForecast: React.FC<WeatherData> = ({ list }) => {
-  const forecastData = list.slice(0, 7).map((item) => {
-    const date = new Date(item.dt_txt);
-    const day = date.toLocaleDateString("en-US", { weekday: "short" });
-    const icon = getWeatherIcon(item.weather[0].main);
-    const temp = Math.round(item.main.temp);
-    const description = item.weather[0].description;
+  const forecastData = list
+    .filter((item, index) => index % 6 == 0)
+    .slice(0, 7)
+    .map((item) => {
+      const date = new Date(item.dt_txt);
+      const day = date.toLocaleDateString("en-US", { weekday: "short" });
+      const icon = getWeatherIcon(item.weather[0].main);
+      const temp = Math.round(item.main.temp);
+      const description = item.weather[0].description;
 
-    return {
-      day,
-      icon,
-      temp,
-      description,
-    };
-  });
+      return {
+        day,
+        icon,
+        temp,
+        description,
+      };
+    });
 
   return (
     <Card className="bg-white/10 border-white/20 text-white">

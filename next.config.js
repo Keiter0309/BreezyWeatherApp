@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
- trailingSlash: true, // Có thể giúp khi bạn gặp vấn đề với URL
+ trailingSlash: true,
   publicRuntimeConfig: {
     staticFolder: '/public',
   },

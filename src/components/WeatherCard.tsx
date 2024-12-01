@@ -39,7 +39,7 @@ const WeatherCard: React.FC<WeatherData> = ({ city, list }) => {
   const currentWeather = list[0];
   const fiveDayForecast = list
     .filter((item, index) => index % 8 === 0)
-    .slice(0, 5);
+    .slice(0, 7);
 
   return (
     <motion.div
